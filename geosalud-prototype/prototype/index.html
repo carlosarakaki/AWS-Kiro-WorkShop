@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoSalud — Derivaciones a CAPS</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header__inner">
+      <h1 class="app-header__title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        GeoSalud
+        <span class="app-header__badge">Prototipo</span>
+      </h1>
+      <nav role="tablist" aria-label="Vistas principales" class="tabs" id="main-tabs">
+        <button role="tab" class="tab-btn" id="tab-analytics" aria-selected="true" aria-controls="panel-analytics">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18"/>
+            <path d="M9 21V9"/>
+          </svg>
+          Tablero Analítico
+        </button>
+        <button role="tab" class="tab-btn" id="tab-referral" aria-selected="false" aria-controls="panel-referral">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Derivación
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <div id="config-error" class="message message--error" style="display:none;"></div>
+
+    <!-- Analytics View -->
+    <section role="tabpanel" id="panel-analytics" aria-labelledby="tab-analytics" aria-hidden="false" class="tab-panel">
+      <div id="analytics-map" class="map-container"></div>
+      <div id="coverage-panel" class="coverage-panel"></div>
+      <div id="favorites-section" class="favorites-section"></div>
+    </section>
+
+    <!-- Referral View -->
+    <section role="tabpanel" id="panel-referral" aria-labelledby="tab-referral" aria-hidden="true" class="tab-panel">
+      <div class="referral-form">
+        <h2 class="referral-form__title">Solicitud de Derivación</h2>
+        <div id="referral-message"></div>
+        <form id="referral-form" autocomplete="off">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-lat">Latitud del paciente</label>
+              <input type="number" id="input-lat" step="any" placeholder="-34.5234" required>
+            </div>
+            <div class="form-group">
+              <label for="input-lon">Longitud del paciente</label>
+              <input type="number" id="input-lon" step="any" placeholder="-58.4731" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="input-pathology">Patología / Motivo de consulta</label>
+            <select id="input-pathology" required>
+              <option value="">Seleccionar patología...</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+            Buscar CAPS recomendados
+          </button>
+        </form>
+      </div>
+      <div id="referral-map" class="map-container" style="display:none;"></div>
+      <div id="ranking-container"></div>
+    </section>
+  </main>
+
+  <footer style="text-align:center; padding: 16px; color: var(--color-text-muted); font-size: 0.75rem;">
+    GeoSalud Prototipo — Jornada de IA para Gobierno 2026 — Datos: REFES (datos.gob.ar)
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
