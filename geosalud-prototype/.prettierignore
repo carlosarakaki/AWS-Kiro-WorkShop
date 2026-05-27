@@ -1,0 +1,4 @@
+prototype/vendor/
+prototype/data/
+coverage/
+node_modules/

@@ -1,0 +1,17 @@
+{
+  "meta": { "schema_version": 1 },
+  "items": [
+    { "caps_id": "REFES-06001", "availability": "high", "waiting_time_minutes": 15, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06002", "availability": "medium", "waiting_time_minutes": 35, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06003", "availability": "low", "waiting_time_minutes": 60, "supplies_status": "low", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06004", "availability": "high", "waiting_time_minutes": 10, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06005", "availability": "medium", "waiting_time_minutes": 25, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06006", "availability": "high", "waiting_time_minutes": 20, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06007", "availability": "medium", "waiting_time_minutes": 40, "supplies_status": "low", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06008", "availability": "high", "waiting_time_minutes": 12, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06009", "availability": "low", "waiting_time_minutes": 55, "supplies_status": "missing", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06010", "availability": "medium", "waiting_time_minutes": 30, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06011", "availability": "high", "waiting_time_minutes": 18, "supplies_status": "ok", "captured_at": "2026-05-27T10:00:00Z" },
+    { "caps_id": "REFES-06012", "availability": "medium", "waiting_time_minutes": 28, "supplies_status": "low", "captured_at": "2026-05-27T10:00:00Z" }
+  ]
+}

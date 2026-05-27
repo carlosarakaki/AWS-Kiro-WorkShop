@@ -1,0 +1,25 @@
+{
+  "name": "geosalud-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototipo estatico de GeoSalud: derivaciones a CAPS (browser-only, sin backend).",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "coverage": "vitest --run --coverage",
+    "lint": "eslint prototype tests/js",
+    "format": "prettier --write prototype tests/js",
+    "serve": "npx --yes serve prototype"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@testing-library/dom": "^10.0.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^9.0.0",
+    "fast-check": "^3.19.0",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.3.0",
+    "vitest": "^1.6.0"
+  }
+}

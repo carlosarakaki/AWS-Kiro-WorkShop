@@ -1,0 +1,15 @@
+{
+  "meta": { "schema_version": 1 },
+  "items": [
+    { "code": "RESP_AGUDA", "label": "Afección respiratoria aguda", "required_services": ["clinica_general"] },
+    { "code": "CONTROL_NINO_SANO", "label": "Control de niño sano", "required_services": ["pediatria"] },
+    { "code": "VACUNACION", "label": "Vacunación", "required_services": ["vacunacion"] },
+    { "code": "CLINICA_GENERAL", "label": "Consulta clínica general", "required_services": ["clinica_general"] },
+    { "code": "GINECOLOGIA", "label": "Consulta ginecológica", "required_services": ["ginecologia"] },
+    { "code": "ODONTOLOGIA", "label": "Consulta odontológica", "required_services": ["odontologia"] },
+    { "code": "SALUD_MENTAL", "label": "Consulta de salud mental", "required_services": ["salud_mental"] },
+    { "code": "NUTRICION", "label": "Consulta nutricional", "required_services": ["nutricion"] },
+    { "code": "PEDIATRIA", "label": "Consulta pediátrica", "required_services": ["pediatria"] },
+    { "code": "KINESIOLOGIA", "label": "Kinesiología / Rehabilitación", "required_services": ["kinesiologia"] }
+  ]
+}

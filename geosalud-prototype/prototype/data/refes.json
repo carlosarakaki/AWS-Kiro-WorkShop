@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "source": "datos.gob.ar",
+    "dataset_id": "refes-caps-mock",
+    "generated_at": "2026-05-27T12:00:00Z",
+    "region_codes": ["06"],
+    "record_count": 12
+  },
+  "items": [
+    {
+      "caps_id": "REFES-06001",
+      "name": "CAPS Nº 1 - Dr. Ramón Carrillo",
+      "address_normalized": "Av. Mitre 1200, Vicente López",
+      "coordinates": { "lat": -34.5234, "lon": -58.4731 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06028", "department_name": "Vicente López", "municipality_id": "06756", "municipality_name": "Vicente López" },
+      "services": ["clinica_general", "pediatria", "vacunacion", "enfermeria"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06002",
+      "name": "CAPS Nº 2 - Eva Perón",
+      "address_normalized": "Calle 25 de Mayo 450, Avellaneda",
+      "coordinates": { "lat": -34.6612, "lon": -58.3657 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06035", "department_name": "Avellaneda", "municipality_id": "06035", "municipality_name": "Avellaneda" },
+      "services": ["clinica_general", "ginecologia", "vacunacion", "odontologia"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06003",
+      "name": "CAPS Nº 3 - San Martín",
+      "address_normalized": "Av. Hipólito Yrigoyen 3200, Lanús",
+      "coordinates": { "lat": -34.7066, "lon": -58.3927 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06270", "department_name": "Lanús", "municipality_id": "06270", "municipality_name": "Lanús" },
+      "services": ["clinica_general", "pediatria", "salud_mental", "enfermeria"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06004",
+      "name": "CAPS Nº 4 - Malvinas Argentinas",
+      "address_normalized": "Calle Belgrano 780, Olivos",
+      "coordinates": { "lat": -34.5112, "lon": -58.4892 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06028", "department_name": "Vicente López", "municipality_id": "06756", "municipality_name": "Vicente López" },
+      "services": ["clinica_general", "vacunacion", "nutricion", "kinesiologia"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06005",
+      "name": "CAPS Nº 5 - Dr. Arturo Illia",
+      "address_normalized": "Av. San Martín 1500, Florida",
+      "coordinates": { "lat": -34.5321, "lon": -58.4956 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06028", "department_name": "Vicente López", "municipality_id": "06756", "municipality_name": "Vicente López" },
+      "services": ["clinica_general", "pediatria", "ginecologia", "vacunacion", "enfermeria"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06006",
+      "name": "CAPS Nº 6 - Juana Azurduy",
+      "address_normalized": "Calle Rivadavia 2100, Avellaneda",
+      "coordinates": { "lat": -34.6701, "lon": -58.3512 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06035", "department_name": "Avellaneda", "municipality_id": "06035", "municipality_name": "Avellaneda" },
+      "services": ["clinica_general", "odontologia", "salud_mental", "enfermeria"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06007",
+      "name": "CAPS Nº 7 - Dr. Favaloro",
+      "address_normalized": "Av. Pavón 3800, Lanús",
+      "coordinates": { "lat": -34.7189, "lon": -58.3801 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06270", "department_name": "Lanús", "municipality_id": "06270", "municipality_name": "Lanús" },
+      "services": ["clinica_general", "pediatria", "vacunacion", "nutricion"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06008",
+      "name": "CAPS Nº 8 - Madre Teresa",
+      "address_normalized": "Calle Sarmiento 600, Vicente López",
+      "coordinates": { "lat": -34.5189, "lon": -58.4678 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06028", "department_name": "Vicente López", "municipality_id": "06756", "municipality_name": "Vicente López" },
+      "services": ["clinica_general", "ginecologia", "enfermeria", "vacunacion"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06009",
+      "name": "CAPS Nº 9 - Néstor Kirchner",
+      "address_normalized": "Av. Libertador 4500, Olivos",
+      "coordinates": { "lat": -34.5078, "lon": -58.5012 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06028", "department_name": "Vicente López", "municipality_id": "06756", "municipality_name": "Vicente López" },
+      "services": ["clinica_general", "pediatria", "salud_mental", "kinesiologia"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06010",
+      "name": "CAPS Nº 10 - Dr. Esteban Maradona",
+      "address_normalized": "Calle Italia 900, Lanús Este",
+      "coordinates": { "lat": -34.6945, "lon": -58.3756 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06270", "department_name": "Lanús", "municipality_id": "06270", "municipality_name": "Lanús" },
+      "services": ["clinica_general", "vacunacion", "odontologia", "enfermeria"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06011",
+      "name": "CAPS Nº 11 - Remedios de Escalada",
+      "address_normalized": "Av. Alsina 1800, Avellaneda",
+      "coordinates": { "lat": -34.6589, "lon": -58.3789 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06035", "department_name": "Avellaneda", "municipality_id": "06035", "municipality_name": "Avellaneda" },
+      "services": ["clinica_general", "pediatria", "ginecologia", "nutricion", "vacunacion"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    },
+    {
+      "caps_id": "REFES-06012",
+      "name": "CAPS Nº 12 - Dr. Cecilia Grierson",
+      "address_normalized": "Calle Perón 350, Florida",
+      "coordinates": { "lat": -34.5278, "lon": -58.5034 },
+      "admin": { "province_id": "06", "province_name": "Buenos Aires", "department_id": "06028", "department_name": "Vicente López", "municipality_id": "06756", "municipality_name": "Vicente López" },
+      "services": ["clinica_general", "ginecologia", "salud_mental", "enfermeria", "vacunacion"],
+      "region_code": "06",
+      "source_version": "2026-05-27T12:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "source": "INDEC mock",
+    "region_codes": [
+      "06"
+    ],
+    "generated_at": "2026-05-10T12:00:00Z"
+  },
+  "units": [
+    {
+      "unit_id": "06",
+      "unit_kind": "province",
+      "name": "Buenos Aires",
+      "population": 17541141
+    },
+    {
+      "unit_id": "06028",
+      "unit_kind": "department",
+      "name": "Vicente López",
+      "population": 269420
+    },
+    {
+      "unit_id": "06035",
+      "unit_kind": "department",
+      "name": "Avellaneda",
+      "population": 342677
+    },
+    {
+      "unit_id": "06270",
+      "unit_kind": "department",
+      "name": "Lanús",
+      "population": 459263
+    },
+    {
+      "unit_id": "06756",
+      "unit_kind": "municipality",
+      "name": "Vicente López (municipio)",
+      "population": 269420
+    },
+    {
+      "unit_id": "06028010",
+      "unit_kind": "locality",
+      "name": "Olivos",
+      "population": 76799
+    },
+    {
+      "unit_id": "06028020",
+      "unit_kind": "locality",
+      "name": "Florida",
+      "population": 39256
+    }
+  ]
+}
