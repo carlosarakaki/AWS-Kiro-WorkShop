@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GeoSalud · Presentación · Jornada IA Gobierno</title>
+<style>
+  :root{
+    --bg:#0B1220;
+    --bg-2:#111A2E;
+    --fg:#E8EEF7;
+    --muted:#94A3B8;
+    --accent:#5EEAD4;
+    --accent-2:#FF9900;
+    --good:#34D399;
+    --warn:#FBBF24;
+    --bad:#F87171;
+    --card:rgba(255,255,255,0.04);
+    --border:rgba(255,255,255,0.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(94,234,212,0.15), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(255,153,0,0.10), transparent 60%),
+      var(--bg);
+    overflow:hidden;
+  }
+
+  .deck{position:relative;height:100vh;width:100vw}
+  .slide{
+    position:absolute;inset:0;
+    display:none;flex-direction:column;justify-content:center;
+    padding:6vh 8vw 10vh;
+    animation:fade .35s ease;
+  }
+  .slide.active{display:flex}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.08;margin:0 0 .5rem;letter-spacing:-0.02em}
+  h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin:0 0 1rem;letter-spacing:-0.01em}
+  h3{font-size:1rem;color:var(--muted);font-weight:500;margin:0 0 1.2rem}
+  p{font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.5;color:#CBD5E1;max-width:60ch}
+
+  .eyebrow{
+    display:inline-block;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:.8rem;font-weight:600;
+  }
+  .accent{color:var(--accent)}
+  .accent-2{color:var(--accent-2)}
+
+  .grid{display:grid;gap:1rem;margin-top:1rem}
+  .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:1.1rem 1.2rem;
+  }
+  .card .num{font-size:1.5rem;color:var(--accent);font-weight:700;margin-bottom:.3rem}
+  .card h4{margin:0 0 .3rem;font-size:1rem}
+  .card p{font-size:.9rem;margin:0;color:#94A3B8}
+
+  ul.bullets{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.6rem}
+  ul.bullets li{display:flex;gap:.7rem;align-items:flex-start;font-size:1.05rem;color:#CBD5E1}
+  ul.bullets li::before{
+    content:"";flex:0 0 8px;width:8px;height:8px;border-radius:50%;
+    background:var(--accent);margin-top:.55rem;
+  }
+
+  .pill{
+    display:inline-block;padding:.3rem .65rem;border-radius:999px;
+    background:rgba(94,234,212,0.12);color:var(--accent);
+    font-size:.78rem;font-weight:600;letter-spacing:.04em;margin-right:.4rem;margin-bottom:.4rem;
+  }
+  .pill.orange{background:rgba(255,153,0,0.12);color:var(--accent-2)}
+
+  .topbar{
+    position:absolute;top:0;left:0;right:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.2rem 2rem;font-size:.85rem;color:var(--muted);
+    z-index:10;
+  }
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:600;color:var(--fg)}
+  .brand-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+
+  .controls{
+    position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
+    display:flex;align-items:center;gap:1rem;z-index:20;
+  }
+  .controls button{
+    background:rgba(255,255,255,0.08);border:1px solid var(--border);
+    color:var(--fg);width:40px;height:40px;border-radius:50%;
+    cursor:pointer;font-size:1.1rem;display:grid;place-items:center;
+    transition:background .2s ease,border-color .2s ease;
+  }
+  .controls button:hover{background:rgba(94,234,212,0.18);border-color:var(--accent)}
+  .progress{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.9rem;min-width:50px;text-align:center}
+
+  .dots{
+    position:fixed;bottom:.7rem;left:50%;transform:translateX(-50%);
+    display:flex;gap:.4rem;z-index:20;
+  }
+  .dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background .2s,width .2s;cursor:pointer}
+  .dots span.active{background:var(--accent);width:18px;border-radius:3px}
+
+  .title-slide{align-items:flex-start}
+  .title-slide .flag{
+    width:60px;height:8px;border-radius:4px;
+    background:linear-gradient(90deg,#74ACDF 33%,#fff 33% 66%,#74ACDF 66%);
+    margin-bottom:1.2rem;
+  }
+
+  .kbd{
+    display:inline-block;padding:.15rem .5rem;border-radius:6px;
+    background:rgba(255,255,255,0.08);border:1px solid var(--border);
+    font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.85rem;
+  }
+
+  /* Screenshot mockup */
+  .screenshot{
+    border-radius:12px;
+    border:1px solid var(--border);
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    max-height:55vh;
+    position:relative;
+  }
+  .screenshot img{width:100%;height:auto;display:block}
+  .screenshot-placeholder{
+    width:100%;aspect-ratio:16/9;
+    background:linear-gradient(135deg, var(--bg-2) 0%, rgba(94,234,212,0.05) 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:.8rem;color:var(--muted);font-size:.9rem;
+  }
+  .screenshot-placeholder svg{width:48px;height:48px;color:var(--accent);opacity:.5}
+
+  /* Flow diagram */
+  .flow{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:1.5rem}
+  .flow-step{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:10px;padding:.7rem 1rem;font-size:.9rem;
+    display:flex;align-items:center;gap:.5rem;
+  }
+  .flow-step .icon{font-size:1.2rem}
+  .flow-arrow{color:var(--accent);font-size:1.2rem;opacity:.6}
+
+  /* Architecture diagram */
+  .arch{
+    display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+    align-items:center;gap:.8rem;margin-top:1.5rem;
+  }
+  .arch-box{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:1rem;text-align:center;
+  }
+  .arch-box h4{margin:0 0 .3rem;font-size:.95rem}
+  .arch-box p{margin:0;font-size:.8rem;color:var(--muted)}
+  .arch-arrow{color:var(--accent);font-size:1.5rem;text-align:center}
+
+  /* Impact numbers */
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem}
+  .impact-item{text-align:center}
+  .impact-item .big{font-size:2.5rem;font-weight:700;color:var(--accent);line-height:1;
+    text-shadow:0 0 20px rgba(94,234,212,0.3)}
+  .impact-item .label{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+
+  /* Timer bar */
+  .timer-bar{
+    position:fixed;top:0;left:0;right:0;height:3px;z-index:100;
+    background:rgba(255,255,255,0.05);
+  }
+  .timer-bar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transition:width .35s ease}
+
+  @media (max-width:780px){
+    .grid.cols-3,.grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .slide{padding:5vh 6vw 12vh}
+    .arch{grid-template-columns:1fr;gap:.5rem}
+    .arch-arrow{transform:rotate(90deg)}
+    .impact-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="timer-bar"><div class="fill" id="timer-fill"></div></div>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-dot"></span> GeoSalud</div>
+  <div>Jornada IA para Gobierno · 27 Mayo 2026</div>
+</div>
+
+<div class="deck" id="deck">
+
+  <!-- 1. PORTADA (30s) -->
+  <section class="slide active title-slide">
+    <div class="flag" aria-hidden="true"></div>
+    <span class="eyebrow">Jornada de IA para Gobierno</span>
+    <h1><span class="accent">GeoSalud</span><br/>Derivación inteligente a CAPS</h1>
+    <p style="margin-top:1rem">Sistema de geolocalización y recomendación de centros de atención primaria usando datos abiertos del Estado argentino.</p>
+    <div style="margin-top:2rem;display:flex;gap:.5rem;flex-wrap:wrap">
+      <span class="pill">datos.gob.ar</span>
+      <span class="pill">API Georef</span>
+      <span class="pill">Leaflet.js</span>
+      <span class="pill orange">Kiro IDE</span>
+      <span class="pill orange">AWS</span>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEMA (45s) -->
+  <section class="slide">
+    <span class="eyebrow">El problema</span>
+    <h2>¿A dónde derivo a este paciente?</h2>
+    <div class="grid cols-2" style="margin-top:1rem">
+      <div>
+        <ul class="bullets">
+          <li>El ciudadano no sabe qué CAPS tiene cerca ni qué especialidades ofrece</li>
+          <li>Los profesionales derivan sin datos de capacidad operativa en tiempo real</li>
+          <li>Zonas con baja cobertura no se detectan hasta que hay crisis</li>
+          <li>Los datos existen en <strong>datos.gob.ar</strong> pero no están integrados</li>
+        </ul>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+        <div style="font-size:3rem;margin-bottom:.5rem;opacity:.8">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--bad)">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            <line x1="2" y1="2" x2="22" y2="22" stroke-width="2"/>
+          </svg>
+        </div>
+        <p style="font-size:.95rem;color:var(--muted);max-width:28ch">Sin herramientas de geolocalización, la derivación es ineficiente y desigual.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SOLUCIÓN + ARQUITECTURA (60s) -->
+  <section class="slide">
+    <span class="eyebrow">Nuestra solución</span>
+    <h2>Mapa inteligente de derivación</h2>
+    <p>El paciente indica su ubicación y patología → GeoSalud recomienda los 3 mejores CAPS por cercanía, capacidad y servicios disponibles.</p>
+
+    <div class="arch">
+      <div class="arch-box">
+        <h4>Datos Abiertos</h4>
+        <p>REFES · datos.gob.ar<br/>API Georef</p>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">
+        <h4>Motor de Derivación</h4>
+        <p>Haversine + Ranking<br/>ponderado (dist/cap/serv)</p>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">
+        <h4>Visualización</h4>
+        <p>Leaflet.js + OSRM<br/>Mapa interactivo</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem;display:flex;gap:.5rem;flex-wrap:wrap">
+      <span class="pill">100% browser</span>
+      <span class="pill">Sin backend</span>
+      <span class="pill">Datos reales REFES</span>
+      <span class="pill orange">Spec-driven con Kiro</span>
+    </div>
+  </section>
+
+  <!-- 4. DEMO / SCREENSHOT (90s) -->
+  <section class="slide">
+    <span class="eyebrow">Demo en vivo</span>
+    <h2>GeoSalud en acción</h2>
+    <div class="grid cols-2" style="align-items:start">
+      <div>
+        <ul class="bullets">
+          <li><strong>Clic en el mapa</strong> → ubica al paciente</li>
+          <li><strong>Filtro por patología</strong> → pediatría, cardiología, diabetes, etc.</li>
+          <li><strong>Radio ajustable</strong> → 1 a 20 km</li>
+          <li><strong>Top 3 recomendados</strong> → ranking por distancia + capacidad</li>
+          <li><strong>Ruta real</strong> → OSRM calcula distancia y tiempo en auto</li>
+        </ul>
+        <p style="margin-top:1rem;font-size:.85rem;color:var(--muted)">
+          <a href="demo.html" target="_blank" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">
+            Abrir demo interactiva →
+          </a>
+        </p>
+      </div>
+      <a href="demo.html" target="_blank" class="screenshot" style="text-decoration:none;display:block;cursor:pointer">
+        <img src="Captura de pantalla 2026-05-27 170219.png" alt="Captura de pantalla de GeoSalud mostrando el mapa de CAPS con ranking de derivación" style="width:100%;height:auto;display:block" />
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. KIRO + IMPACTO (60s) -->
+  <section class="slide">
+    <span class="eyebrow">Desarrollo con Kiro</span>
+    <h2>De la idea al prototipo en horas</h2>
+
+    <div class="flow">
+      <div class="flow-step"><span class="icon">💬</span> Prompt</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="icon">📋</span> Spec</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="icon">✅</span> Aprobación</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="icon">⚡</span> Código</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="icon">🗺️</span> Prototipo</div>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="big">20+</div>
+        <div class="label">CAPS mapeados (demo)</div>
+      </div>
+      <div class="impact-item">
+        <div class="big">6</div>
+        <div class="label">Especialidades filtradas</div>
+      </div>
+      <div class="impact-item">
+        <div class="big">0</div>
+        <div class="label">Dependencias de backend</div>
+      </div>
+    </div>
+
+    <div class="grid cols-2" style="margin-top:1.5rem">
+      <div class="card">
+        <h4>MCPs utilizados</h4>
+        <p>MCP Datos Abiertos Argentina (1.233 datasets) + MCP BCRA para contexto macro</p>
+      </div>
+      <div class="card">
+        <h4>Próximos pasos</h4>
+        <p>Conectar REFES real vía API · Capacidad en tiempo real · Deploy serverless en AWS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CIERRE (15s) -->
+  <section class="slide title-slide">
+    <div class="flag" aria-hidden="true"></div>
+    <span class="eyebrow">Gracias</span>
+    <h1>Datos abiertos +<br/><span class="accent">IA</span> = mejor salud pública</h1>
+    <p style="margin-top:1rem">GeoSalud demuestra que con datos públicos y herramientas modernas, podemos mejorar la derivación sanitaria para millones de argentinos.</p>
+    <div style="margin-top:2rem;display:flex;gap:.5rem;flex-wrap:wrap">
+      <span class="pill">github.com/Eduvilascoder/Jornada-IA-Gobierno</span>
+      <span class="pill orange">kiro.dev</span>
+    </div>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button id="prev" aria-label="Anterior">‹</button>
+  <span class="progress" id="progress">1 / 6</span>
+  <button id="next" aria-label="Siguiente">›</button>
+</div>
+<div class="dots" id="dots"></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  const progress = document.getElementById('progress');
+  const dotsEl = document.getElementById('dots');
+  const timerFill = document.getElementById('timer-fill');
+  let idx = 0;
+
+  // Build dots
+  for(let i=0;i<total;i++){
+    const d = document.createElement('span');
+    d.addEventListener('click',()=>go(i));
+    dotsEl.appendChild(d);
+  }
+
+  function go(n){
+    idx = Math.max(0, Math.min(total-1, n));
+    slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+    [...dotsEl.children].forEach((d,i)=>d.classList.toggle('active', i===idx));
+    progress.textContent = `${idx+1} / ${total}`;
+    timerFill.style.width = `${((idx+1)/total)*100}%`;
+  }
+
+  document.getElementById('next').addEventListener('click',()=>go(idx+1));
+  document.getElementById('prev').addEventListener('click',()=>go(idx-1));
+
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='ArrowRight' || e.key===' ' || e.key==='PageDown') { e.preventDefault(); go(idx+1); }
+    else if(e.key==='ArrowLeft' || e.key==='PageUp') { e.preventDefault(); go(idx-1); }
+    else if(e.key==='Home') go(0);
+    else if(e.key==='End') go(total-1);
+    else if(e.key==='f' || e.key==='F') {
+      if(!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  go(0);
+</script>
+</body>
+</html>
